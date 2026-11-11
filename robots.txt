@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thuysa-andrielly.vercel.app/sitemap.xml
+Sitemap: https://site-thuysa.vercel.app/sitemap.xml

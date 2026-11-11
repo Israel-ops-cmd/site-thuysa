@@ -30,10 +30,9 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon-v3.png">
 <link rel="manifest" href="site.webmanifest">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Montserrat:wght@400;700;900&display=swap">
-<link rel="preload" as="image" href="img/thuysa-hero-v2.webp" fetchpriority="high">
+<link rel="preload" href="fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" media="(min-width: 961px)" href="img/thuysa-hero-v2.webp" imagesrcset="img/thuysa-hero-v2-420.webp 420w, img/thuysa-hero-v2.webp 760w" imagesizes="(max-width: 960px) 330px, 460px" fetchpriority="high">
 
 <script type="application/ld+json">
 {
@@ -92,6 +91,9 @@
 </script>
 
 <style>
+@font-face{font-family:"Montserrat";src:url(fonts/montserrat.woff2) format("woff2");font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces.woff2) format("woff2");font-weight:400 600;font-style:normal;font-display:swap}
+@font-face{font-family:"Fraunces";src:url(fonts/fraunces-italic.woff2) format("woff2");font-weight:400 600;font-style:italic;font-display:swap}
 :root{
   --roxo:#5B2A6E; --roxo-esc:#45204F; --verde:#7DB343; --verde-esc:#5E8F2C;
   --lilas:#E9DDF0; --papel:#F7F2EC; --tinta:#2B1E30; --tinta-2:#5A4A5F;
@@ -449,7 +451,7 @@ footer .base{grid-column:1/-1;border-top:1px solid rgba(233,221,240,.15);padding
       </div>
       <div class="foto">
         <canvas id="gotas" aria-hidden="true"></canvas>
-        <img src="img/thuysa-hero-v2.webp" width="760" height="1621" alt="Thuysa Andrielly, terapeuta ocupacional, sorrindo com a mão no queixo" fetchpriority="high" decoding="async">
+        <img src="img/thuysa-hero-v2.webp" srcset="img/thuysa-hero-v2-420.webp 420w, img/thuysa-hero-v2.webp 760w" sizes="(max-width: 960px) 330px, 460px" width="760" height="1621" alt="Thuysa Andrielly, terapeuta ocupacional, sorrindo com a mão no queixo" fetchpriority="high" decoding="async">
         <div class="selo s1">Certificação internacional em Integração Sensorial de Ayres</div>
         <div class="selo s2">CREFITO 22704-TO</div>
       </div>
@@ -842,7 +844,8 @@ if (!RM && FINE){
 /* Gotas que se fundem (metaballs) no fundo do hero */
 (function(){
   var cv = document.getElementById('gotas'), ctx = cv.getContext('2d');
-  var W = 150, H = 170; cv.width = W; cv.height = H;
+  var pequeno = innerWidth < 700, W = pequeno ? 96 : 150, H = pequeno ? 110 : 170; cv.width = W; cv.height = H;
+  var ultimo = 0;
   var img = ctx.createImageData(W, H), d = img.data;
   var lilas = [233,221,240], verde = [125,179,67], lilas2 = [214,193,226];
   var gotas = [
@@ -856,6 +859,8 @@ if (!RM && FINE){
   var visivel = true, t0 = performance.now();
   new IntersectionObserver(function(es){ visivel = es[0].isIntersecting; if (visivel && !RM) requestAnimationFrame(quadro); }).observe(cv);
   function quadro(t){
+    if (t - ultimo < 33){ if (visivel && !RM) requestAnimationFrame(quadro); return; }
+    ultimo = t;
     var tt = t - t0, ps = gotas.map(function(g){
       return {x:(g.x + Math.sin(tt*g.sx*6 + g.ph)*.09)*W, y:(g.y + Math.cos(tt*g.sy*6 + g.ph)*.07)*H, r2:g.r*g.r, c:g.c};
     });
@@ -870,7 +875,8 @@ if (!RM && FINE){
     ctx.putImageData(img, 0, 0);
     if (visivel && !RM) requestAnimationFrame(quadro);
   }
-  requestAnimationFrame(quadro);
+  var inicia = function(){ setTimeout(function(){ requestAnimationFrame(quadro); }, root.classList.contains('no-intro') ? 300 : 1800); };
+  if (document.readyState === 'complete') inicia(); else addEventListener('load', inicia);
 })();
 
 })();

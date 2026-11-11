@@ -252,9 +252,14 @@ main{position:relative}
 .depo{background:var(--lilas);padding:120px 0}
 .depo .sec-head h2{color:var(--roxo)}
 .depo-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:22px;align-items:start}
-.depo blockquote{margin:0;background:#fff;border-radius:24px;padding:30px;border:2px dashed rgba(91,42,110,.35)}
+.depo blockquote{margin:0;background:#fff;border-radius:24px;padding:30px;box-shadow:0 18px 40px -26px rgba(69,32,79,.5)}
+.depo blockquote p::before{content:"\201C";display:block;font:600 64px/0.6 var(--serif);color:var(--verde);margin-bottom:8px}
+.nota .estrelas{color:var(--verde-esc);font-size:28px;letter-spacing:4px}
+.nota p{margin:6px 0 10px;color:var(--tinta-2)}
+.nota strong{color:var(--roxo)}
+.link-google{font:700 15px var(--sans);color:var(--roxo);display:inline-block;padding:10px 0;min-height:44px}
 .depo blockquote:nth-child(2){margin-top:60px} .depo blockquote:nth-child(3){margin-top:20px}
-.depo blockquote p{font:400 22px/1.35 var(--serif);color:var(--roxo)}
+.depo blockquote p{font:400 24px/1.35 var(--serif);color:var(--roxo)}
 .depo cite{font:700 14px var(--sans);font-style:normal;color:var(--tinta-2)}
 
 /* Sobre e linha do tempo */
@@ -488,11 +493,13 @@ footer .base{grid-column:1/-1;border-top:1px solid rgba(233,221,240,.15);padding
 
   <section class="depo" aria-labelledby="t-depo">
     <div class="wrap">
-      <div class="sec-head"><h2 id="t-depo" class="fade">O que as famílias contam <em>depois de alguns meses</em></h2><p class="fade">Relatos reais, compartilhados com autorização.</p></div>
+      <div class="sec-head"><h2 id="t-depo" class="fade">Nota máxima de <em>quem já confiou</em> o filho a mim</h2>
+        <div class="fade nota"><div class="estrelas" aria-hidden="true">★★★★★</div><p><strong>5,0 no Google</strong>, com 7 avaliações de famílias atendidas.</p><a class="link-google" href="https://www.google.com/maps/search/?api=1&amp;query=Thuysa%20Andrielly%20Terapeuta%20Ocupacional" target="_blank" rel="noopener">Ver as avaliações no Google</a></div>
+      </div>
       <div class="depo-grid">
-        <blockquote class="fade"><p>[PENDENTE: DEPOIMENTO REAL] Texto de uma mãe atendida, com autorização.</p><cite>Primeiro nome, mãe de criança de X anos</cite></blockquote>
-        <blockquote class="fade"><p>[PENDENTE: DEPOIMENTO REAL]</p><cite>Primeiro nome, mãe de criança de X anos</cite></blockquote>
-        <blockquote class="fade"><p>[PENDENTE: DEPOIMENTO REAL]</p><cite>Primeiro nome, mãe de criança de X anos</cite></blockquote>
+        <blockquote class="fade"><p>Uma ótima profissional, super atenciosa! Amo, super recomendo.</p><cite>Amanda L., avaliação no Google</cite></blockquote>
+        <blockquote class="fade"><p>Sem dúvidas a melhor terapeuta ocupacional.</p><cite>Thais S., avaliação no Google</cite></blockquote>
+        <blockquote class="fade"><p>Uma T.O. maravilhosa.</p><cite>Dayane O., avaliação no Google</cite></blockquote>
       </div>
     </div>
   </section>

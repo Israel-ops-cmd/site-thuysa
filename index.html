@@ -180,7 +180,7 @@ main{position:relative}
 .hero .lead{font-size:clamp(17px,1.5vw,20px);max-width:34em;margin:22px 0 30px;color:var(--tinta-2)}
 .hero .lead strong{color:var(--tinta)}
 .ctas{display:flex;flex-wrap:wrap;gap:14px}
-.hero .foto{position:relative;justify-self:end;width:min(460px,100%);aspect-ratio:480/1015;max-height:calc(100svh - var(--nav-h) - 60px)}
+.hero .foto{position:relative;justify-self:end;width:min(460px,100%);aspect-ratio:760/1621;max-height:calc(100svh - var(--nav-h) - 60px)}
 .hero canvas{filter:blur(5px);position:absolute;inset:-12% -40% -6% -30%;width:170%;height:118%;z-index:0}
 .hero .foto img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;object-position:bottom;-webkit-mask-image:linear-gradient(#000 82%,transparent);mask-image:linear-gradient(#000 82%,transparent)}
 .selo{position:absolute;z-index:2;background:var(--papel);border-radius:18px;padding:12px 16px;font:700 13px/1.35 var(--sans);color:var(--roxo);box-shadow:0 14px 34px -14px rgba(69,32,79,.45);max-width:220px}
@@ -263,6 +263,7 @@ main{position:relative}
 .sobre .foto{position:sticky;top:calc(var(--nav-h) + 30px);background:var(--lilas);border-radius:220px 220px 28px 28px;overflow:hidden;aspect-ratio:4/5}
 .sobre .foto img{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:86%;height:auto;max-height:100%;object-fit:contain;object-position:bottom}
 .sobre .foto .reveal{position:absolute;inset:0}
+.sobre .foto img{-webkit-mask-image:linear-gradient(#000 88%,transparent);mask-image:linear-gradient(#000 88%,transparent)}
 .sobre .foto .reveal img{transform:translateX(-50%) scale(1.08)}
 .sobre .foto .reveal.on img{transform:translateX(-50%)}
 .sobre h2{font-size:clamp(40px,5.4vw,72px);color:var(--roxo);margin-bottom:28px}
@@ -436,7 +437,7 @@ footer .base{grid-column:1/-1;border-top:1px solid rgba(233,221,240,.15);padding
       </div>
       <div class="foto">
         <canvas id="gotas" aria-hidden="true"></canvas>
-        <img src="img/thuysa-hero.webp" width="480" height="1015" alt="Thuysa Andrielly, terapeuta ocupacional, sorrindo com a mão no queixo" fetchpriority="high" decoding="async">
+        <img src="img/thuysa-hero.webp" width="760" height="1621" alt="Thuysa Andrielly, terapeuta ocupacional, sorrindo com a mão no queixo" fetchpriority="high" decoding="async">
         <div class="selo s1">Certificação internacional em Integração Sensorial de Ayres</div>
         <div class="selo s2">CREFITO 22704-TO</div>
       </div>
@@ -498,7 +499,7 @@ footer .base{grid-column:1/-1;border-top:1px solid rgba(233,221,240,.15);padding
 
   <section class="sobre" id="sobre" aria-labelledby="t-sobre">
     <div class="wrap">
-      <div class="foto"><div class="reveal"><img src="img/thuysa-sobre.webp" width="490" height="1128" loading="lazy" decoding="async" alt="Thuysa Andrielly de blazer branco, com as mãos unidas, olhando para a câmera"></div></div>
+      <div class="foto"><div class="reveal"><img src="img/thuysa-sobre.webp" width="820" height="1487" loading="lazy" decoding="async" alt="Thuysa Andrielly de blazer branco e blusa verde, com as mãos unidas, olhando para a câmera"></div></div>
       <div class="texto">
         <h2 class="fade">Prazer, eu sou a <em>Thuysa</em></h2>
         <p class="fade">Sou terapeuta ocupacional e escolhi trabalhar com crianças com autismo e dificuldades sensoriais porque acredito que cada pequena conquista muda a rotina de uma família inteira.</p>

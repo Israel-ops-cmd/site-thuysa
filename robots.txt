@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://thuysa-andrielly.vercel.app/sitemap.xml
